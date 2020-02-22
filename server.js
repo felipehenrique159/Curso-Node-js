@@ -14,8 +14,11 @@ requireDir("./src/models")
 const Product = mongoose.model('Product')
 
 
-
 app.get("/" , (req,res) =>{
-
+    Product.create({
+        title: 'React native',
+        description: 'React native curse',
+        url:'www.google.com'
+    })
     return res.send("Hello World")
 })
