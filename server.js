@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const requireDir = require('require-dir')
 const app = express()
 
 app.listen(3000)
@@ -8,9 +9,13 @@ app.listen(3000)
 
 mongoose.connect('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true})
 
-//require('./src/models/Product');
+requireDir("./src/models")
 
+//const Product = mongoose.model('Product')
 
 app.get("/" , (req,res) =>{
+
+
+
     return res.send("Hello World")
 })
